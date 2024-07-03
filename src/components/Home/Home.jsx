@@ -1,15 +1,15 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
 
-const Home = ({ image, title, description, price, icon }) => {
+const Home = ({ image, title, description, price, icon, onPressAdd }) => {
   return (
     <View>
       <View style={styles.image}>
         <Image source={image} />
-        <TouchableOpacity>
-        <View style={styles.icons}>
-          <Image source={icon} />
-        </View>
+        <TouchableOpacity onPress={onPressAdd}>
+          <View style={styles.icons}>
+            <Image source={icon} />
+          </View>
         </TouchableOpacity>
       </View>
       <Text style={styles.title}>{title}</Text>

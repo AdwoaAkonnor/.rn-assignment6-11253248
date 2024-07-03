@@ -1,7 +1,14 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
 
-const CartsClothes = ({ image, title, description, price, icon }) => {
+const CartsClothes = ({
+  image,
+  title,
+  description,
+  price,
+  icon,
+  onPressRemove,
+}) => {
   return (
     <View style={styles.container}>
       <View style={styles.image}>
@@ -11,10 +18,9 @@ const CartsClothes = ({ image, title, description, price, icon }) => {
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.description}>{description}</Text>
         <Text style={styles.amount}>{price}</Text>
-        <View style={styles.icons}>
-        
+        <TouchableOpacity onPress={onPressRemove} style={styles.icons}>
           <Image source={icon} />
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -32,7 +38,6 @@ const styles = StyleSheet.create({
     position: "relative",
     marginBottom: 15,
     marginTop: 30,
-   
   },
   title: {
     fontWeight: "400",
@@ -41,15 +46,15 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 16,
-    marginTop:10
-},
+    marginTop: 10,
+  },
   amount: {
     color: "brown",
-    marginTop: 10
+    marginTop: 10,
   },
   icons: {
-    marginTop:40,
-    marginRight:20,
+    marginTop: 40,
+    marginRight: 20,
     alignItems: "flex-end",
   },
   text: {
